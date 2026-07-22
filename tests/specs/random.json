@@ -1,19 +1,12 @@
 [
   {
-    "name": "/random",
+    "name": "/random prompts for minimum",
     "steps": [
       {
+        "send": { "text": "/random" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Alias for /rand"
-            }
-          }
-        ],
-        "send": {
-          "text": "/random"
-        }
+          { "method": "sendMessage", "payload": { "text": "What's the minimum number?" } }
+        ]
       }
     ]
   }

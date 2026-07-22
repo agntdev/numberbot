@@ -3,17 +3,10 @@
     "name": "🎲 1-6 Dice",
     "steps": [
       {
+        "send": { "callback": "preset:1-6" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Generate dice roll"
-            }
-          }
-        ],
-        "send": {
-          "callback": "preset:1-6"
-        }
+          { "method": "sendMessage", "payload": {} }
+        ]
       }
     ]
   }

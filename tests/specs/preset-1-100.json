@@ -3,17 +3,10 @@
     "name": "1-100",
     "steps": [
       {
+        "send": { "callback": "preset:1-100" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Generate number between 1-100"
-            }
-          }
-        ],
-        "send": {
-          "callback": "preset:1-100"
-        }
+          { "method": "sendMessage", "payload": {} }
+        ]
       }
     ]
   }

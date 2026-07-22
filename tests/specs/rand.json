@@ -1,19 +1,23 @@
 [
   {
-    "name": "/rand",
+    "name": "/rand prompts for minimum",
     "steps": [
       {
+        "send": { "text": "/rand" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Open custom number request prompt"
-            }
-          }
-        ],
-        "send": {
-          "text": "/rand"
-        }
+          { "method": "sendMessage", "payload": { "text": "What's the minimum number?" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Custom button from menu prompts for minimum",
+    "steps": [
+      {
+        "send": { "callback": "rand:start" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "What's the minimum number?" } }
+        ]
       }
     ]
   }

@@ -1,15 +1,13 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
 composer.command("random", async (ctx) => {
-  await ctx.reply("Alias for /rand");
+  ctx.session.step = "awaiting_min";
+  await ctx.reply("What's the minimum number?", {
+    reply_markup: { force_reply: true, input_field_placeholder: "e.g. 1" },
+  });
 });
 
 export default composer;
