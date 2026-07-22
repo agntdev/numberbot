@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/rand",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Open custom number request prompt"
+            }
+          }
+        ],
+        "send": {
+          "text": "/rand"
+        }
+      }
+    ]
+  }
+]
