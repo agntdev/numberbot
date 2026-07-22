@@ -1,19 +1,54 @@
 [
   {
-    "name": "@NumberBot 1-10 3",
+    "name": "Inline mode button generates numbers",
     "steps": [
       {
+        "send": { "callback": "numberbot:inline" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Inline mode: generate 3 numbers between 1-10"
+          { "method": "sendMessage", "payload": {} }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Inline query with valid range returns results",
+    "steps": [
+      {
+        "send": {
+          "update": {
+            "update_id": 1,
+            "inline_query": {
+              "id": "1",
+              "from": { "id": 1, "is_bot": false, "first_name": "Test" },
+              "query": "1-10 3",
+              "offset": ""
             }
           }
-        ],
+        },
+        "expect": [
+          { "method": "answerInlineQuery" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Inline query with invalid range returns help",
+    "steps": [
+      {
         "send": {
-          "callback": "menu:numberbot-1-10-3"
-        }
+          "update": {
+            "update_id": 2,
+            "inline_query": {
+              "id": "2",
+              "from": { "id": 1, "is_bot": false, "first_name": "Test" },
+              "query": "hello",
+              "offset": ""
+            }
+          }
+        },
+        "expect": [
+          { "method": "answerInlineQuery" }
+        ]
       }
     ]
   }

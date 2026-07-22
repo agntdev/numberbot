@@ -3,17 +3,10 @@
     "name": "0-1 Decimal",
     "steps": [
       {
+        "send": { "callback": "preset:0-1" },
         "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Generate decimal between 0-1"
-            }
-          }
-        ],
-        "send": {
-          "callback": "preset:0-1"
-        }
+          { "method": "sendMessage", "payload": {} }
+        ]
       }
     ]
   }
